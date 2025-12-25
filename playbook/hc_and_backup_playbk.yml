@@ -11,7 +11,7 @@
       when: ansible_network_os == 'cisco.ios.ios'
     - name: send HC command
       cisco.ios.ios_command:
-        commands: "{{lookup('file', '{{playbook_dir}}/../templates/cisco_hc_script.txt')}}"
+        commands: "{{ lookup('file', playbook_dir + '/../templates/cisco_hc_script.txt') }}"
       register: output
       when: ansible_network_os == 'cisco.ios.ios'
     - name: save output to file
