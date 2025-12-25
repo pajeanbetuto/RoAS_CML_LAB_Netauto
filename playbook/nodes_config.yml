@@ -1,0 +1,8 @@
+- name: configuration of nodes
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Link description
+      cisco.io.ios_interface:
+        config: "{{interfaces}}"
+        state: merged

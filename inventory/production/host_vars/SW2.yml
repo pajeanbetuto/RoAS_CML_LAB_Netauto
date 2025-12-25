@@ -1,0 +1,16 @@
+interfaces:
+  - name: vlan 1
+    description: mgmt_interfaces
+    enabled: true
+  - name: e0/1
+    description: x-connection to SW2
+    enabled: true
+  - name: e0/2
+    description: x-connection to R1
+    enabled: true
+  - name: e0/3
+    description: access port
+    enabled: true
+  - name: e1/0
+    description: access port
+    enabled: true

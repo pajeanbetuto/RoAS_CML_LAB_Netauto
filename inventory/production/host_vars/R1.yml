@@ -1,0 +1,13 @@
+interfaces:
+  - name: e0/0
+    description: mgmt_interfaces
+    enabled: true
+  - name: e0/1.10
+    description: subinterface to SW1 for vlan 10/LAN1
+    enabled: true
+  - name: e0/1.20
+    description: subinterface to SW1 for vlan 20/LAN2
+    enabled: true
+  - name: e0/2
+    description: x-connection to R2
+    enabled: true

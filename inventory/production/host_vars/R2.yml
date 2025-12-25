@@ -1,0 +1,10 @@
+interfaces:
+  - name: e0/0
+    description: mgmt_interfaces
+    enabled: true
+  - name: e0/1
+    description: LAN3
+    enabled: true
+  - name: e0/2
+    description: x-connection to R1
+    enabled: true
