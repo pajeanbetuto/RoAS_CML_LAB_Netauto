@@ -1,0 +1,3 @@
+show run
+sh ip int br
+sh ip int stats

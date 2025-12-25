@@ -1,0 +1,21 @@
+- name: HC and Backup nodes
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: backup cisco nodes
+      cisco.ios.ios_config:
+        backup: yes
+        backup_options:
+          filename: "{{ inventory_hostname }}_backup_{{now('date') | replace(' ', '_') }}.cfg"
+          dir_path: "{{playbook_dir}}/../files/backup"
+      when: ansible_network_os == 'cisco.ios.ios'
+    - name: send HC command
+      cisco.ios.ios_command:
+        commands: "{{lookup('file', '{{playbook_dir}}/../tempates/cisco_hc_script.txt')}}"
+      register: output
+      when: ansible_network_os == 'cisco.ios.ios'
+    - name: save output to file
+      copy:
+        content: "{{output.stdout[0]}}"
+        dest: "{{playbook_dir}}/../files/hc/{{ inventory_hostname }}_hc_output_{{now('date') | replace(' ', '_') }}.txt"
+      when: ansible_network_os == 'cisco.ios.ios'
